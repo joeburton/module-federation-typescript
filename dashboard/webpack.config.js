@@ -39,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container', // must match the `remotes` config in the host app
+      name: 'dashboard', // must match the `remotes` config in the host app
       filename: 'remoteEntry.js',
       exposes: {
         './Counter': './src/Counter',

@@ -41,7 +41,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'host',
       remotes: {
-        container: 'container@//localhost:3002/remoteEntry.js',
+        dashboard: 'dashboard@//localhost:3002/remoteEntry.js',
       },
       shared: ['react', 'react-dom'],
     }),

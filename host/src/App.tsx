@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 // React.lazy only supports Default exports.
-const RemoteCounter = React.lazy(() => import('container/Counter'));
+const RemoteCounter = React.lazy(() => import('dashboard/Counter'));
 
-const Button = React.lazy(() => import('container/Button'));
+const Button = React.lazy(() => import('dashboard/Button'));
 
 // import Button from 'container/Button';
 
