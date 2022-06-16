@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdashboard=self.webpackChunkdashboard||[]).push([[415],{415:(e,t,a)=>{a.r(t),a.d(t,{default:()=>n});var s=a(698);const n=({text:e})=>s.createElement("button",null,"Description: ",e)}}]);
