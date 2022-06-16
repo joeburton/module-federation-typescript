@@ -1,5 +1,5 @@
-import * as React from "react";
-import Counter from "./Counter";
+import * as React from 'react';
+import Counter from './Counter';
 
 const App = () => {
   const [count, setCount] = React.useState(123);

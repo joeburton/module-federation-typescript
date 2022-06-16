@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useState, useEffect } from "react";
+import * as React from 'react';
+import { useState, useEffect } from 'react';
 
 interface CounterProps {
   counter: number;
@@ -7,10 +7,10 @@ interface CounterProps {
 }
 
 const buttonStyle = {
-  border: "1px solid blue",
-  borderRadius: "4px",
-  display: "inline-block",
-  padding: "0.5rem",
+  border: '1px solid blue',
+  borderRadius: '4px',
+  display: 'inline-block',
+  padding: '0.5rem',
 };
 
 const Counter = (props: CounterProps) => {
@@ -32,8 +32,8 @@ const Counter = (props: CounterProps) => {
 
   return (
     <div>
-      <div id="value">Parent value: {counter}</div>
-      <div id="value">Local value: {count}</div>
+      <div id='value'>Parent value: {counter}</div>
+      <div id='value'>Local value: {count}</div>
       <button style={buttonStyle} onClick={handleIncrease}>
         Increase
       </button>
