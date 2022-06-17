@@ -45,7 +45,7 @@ module.exports = {
         './Counter': './src/Counter',
         './Button': './src/Button',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom/client'],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

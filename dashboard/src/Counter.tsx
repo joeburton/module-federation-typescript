@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface CounterProps {
   counter: number;
@@ -44,5 +43,4 @@ const Counter = (props: CounterProps) => {
   );
 };
 
-// React.lazy only supports for Default exports.
 export default Counter;
