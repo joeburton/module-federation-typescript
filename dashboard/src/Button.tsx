@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 const Button = ({ text }: { text: string }) => {
   return <button>Description: {text}</button>;

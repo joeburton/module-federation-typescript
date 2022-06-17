@@ -43,7 +43,7 @@ module.exports = {
       remotes: {
         dashboard: 'dashboard@//localhost:3002/remoteEntry.js',
       },
-      shared: ['react', 'react-dom'],
+      shared: ['react', 'react-dom/client'],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

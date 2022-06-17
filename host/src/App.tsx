@@ -1,11 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 
-// React.lazy only supports Default exports.
 const RemoteCounter = React.lazy(() => import('dashboard/Counter'));
-
 const Button = React.lazy(() => import('dashboard/Button'));
-
-// import Button from 'container/Button';
 
 const App = () => {
   const [count, setCount] = React.useState(456);
