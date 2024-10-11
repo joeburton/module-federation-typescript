@@ -16,7 +16,7 @@ export function Layout() {
       </nav>
       <header>Launch Darkly & Module Federation Integration</header>
       <Outlet />
-      <footer>Custom Integration</footer>
+      <footer>---Integration---</footer>
     </div>
   );
 }

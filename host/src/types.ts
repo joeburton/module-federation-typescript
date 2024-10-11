@@ -1,11 +1,6 @@
-interface CounterProps {
-  counter: number;
-  onIncrease: () => void;
-}
-
-declare module 'dashboard/Counter' {
-  const Counter: React.ComponentType<CounterProps>;
-  export default Counter;
+declare module 'dashboard/ControlPanel' {
+  const ControlPanel: React.ComponentType;
+  export default ControlPanel;
 }
 
 interface ButtonProps {

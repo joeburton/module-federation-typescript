@@ -49,7 +49,7 @@ module.exports = {
       remotes: {
         dashboard: 'dashboard@//localhost:3002/remoteEntry.js',
       },
-      shared: ['react', 'react-dom/client'],
+      shared: ['react', 'react-dom/client', 'launchdarkly-react-client-sdk'],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

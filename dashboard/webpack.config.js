@@ -52,7 +52,7 @@ module.exports = {
         './Button': './src/Button',
         './ControlPanel': './src/ControlPanel',
       },
-      shared: ['react', 'react-dom/client'],
+      shared: ['react', 'react-dom/client', 'launchdarkly-react-client-sdk'],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

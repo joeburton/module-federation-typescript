@@ -1,4 +1,5 @@
 import React from 'react';
+import { useFlags } from 'launchdarkly-react-client-sdk';
 
 const item = {
   border: '1px solid green',
@@ -22,11 +23,16 @@ const Feature = ({ feature, flag }: { feature: string; flag: boolean }) => {
 };
 
 const ControlPanel = () => {
+  const { miniBasket, silverDealBanner, newCarousel } = useFlags();
+  const flags = useFlags();
+
+  console.log(flags);
+
   return (
     <>
-      <Feature feature="New Mini Basket" flag={true} />
-      <Feature feature="Additional admin controls" flag={false} />
-      <Feature feature="Hero Banner" flag={true} />
+      <Feature feature="New Mini Basket" flag={miniBasket} />
+      <Feature feature="Additional admin controls" flag={silverDealBanner} />
+      <Feature feature="Hero Banner" flag={newCarousel} />
     </>
   );
 };
