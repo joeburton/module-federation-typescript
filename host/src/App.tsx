@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { Suspense, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const RemoteCounter = React.lazy(() => import('dashboard/Counter'));
-const Button = React.lazy(() => import('dashboard/Button'));
+const ControlPanel = React.lazy(() => import('dashboard/ControlPanel'));
+
+import { Layout } from './Layout';
+import { Home } from './Home';
+import { NoMatch } from './NoMatch';
+
+import './App.css';
 
 const App = () => {
-  const [count, setCount] = React.useState(456);
+  const [count, setCount] = useState(456);
 
   return (
-    <div>
-      <h1>Typescript</h1>
-      <h2>Host</h2>
-      <React.Suspense fallback='Loading remote component'>
-        <RemoteCounter counter={count} onIncrease={() => setCount(count + 1)} />
-        <Button text='Button Instance' />
-      </React.Suspense>
-    </div>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="dashboard" element={<ControlPanel />} />
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </Router>
   );
 };
 

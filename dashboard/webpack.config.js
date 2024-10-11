@@ -11,6 +11,8 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     port: 3002,
+    historyApiFallback: true,
+    hot: true,
   },
   output: {
     publicPath: 'auto',
@@ -35,6 +37,10 @@ module.exports = {
           presets: ['@babel/preset-react', '@babel/preset-typescript'],
         },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   plugins: [
@@ -44,6 +50,7 @@ module.exports = {
       exposes: {
         './Counter': './src/Counter',
         './Button': './src/Button',
+        './ControlPanel': './src/ControlPanel',
       },
       shared: ['react', 'react-dom/client'],
     }),

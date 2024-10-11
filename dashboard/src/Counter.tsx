@@ -31,8 +31,8 @@ const Counter = (props: CounterProps) => {
 
   return (
     <div>
-      <div id='value'>Parent value: {counter}</div>
-      <div id='value'>Local value: {count}</div>
+      <div id="value">Parent value: {counter}</div>
+      <div id="value">Local value: {count}</div>
       <button style={buttonStyle} onClick={handleIncrease}>
         Increase
       </button>

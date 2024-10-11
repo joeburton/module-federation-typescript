@@ -11,6 +11,8 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     port: 3001,
+    historyApiFallback: true,
+    hot: true,
   },
   output: {
     publicPath: 'auto',
@@ -34,6 +36,10 @@ module.exports = {
         options: {
           presets: ['@babel/preset-react', '@babel/preset-typescript'],
         },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
