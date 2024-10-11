@@ -48,7 +48,6 @@ module.exports = {
       name: 'dashboard', // must match the `remotes` config in the host app
       filename: 'remoteEntry.js',
       exposes: {
-        './Counter': './src/Counter',
         './Button': './src/Button',
         './ControlPanel': './src/ControlPanel',
       },

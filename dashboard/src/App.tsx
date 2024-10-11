@@ -1,14 +1,11 @@
 import React from 'react';
-import Counter from './Counter';
+import ControlPanel from './ControlPanel';
 
 const App = () => {
-  const [count, setCount] = React.useState(123);
-
   return (
     <div>
-      <h1>Typescript</h1>
-      <h2>Container</h2>
-      <Counter counter={count} onIncrease={() => setCount(count + 1)} />
+      <h1>Dashboard</h1>
+      <ControlPanel />
     </div>
   );
 };

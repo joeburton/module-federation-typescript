@@ -11,12 +11,13 @@ const item = {
 export function Home() {
   return (
     <div style={item}>
-      <h3>Demo structure</h3>
+      <h3>POC</h3>
       <ul>
         <li>Two Micro Frontends, Host and Dashboard</li>
         <li>Launch Darkly initialised in the Host MFE</li>
+        <li>Shared instance of LD between Host and Dashboard MFE</li>
         <li>Feature flags retrieved from LD in the Dashboard MFE</li>
-        <li>Configuration of LD shared between MFE's via React.Context</li>
+        <li>Configuration of LD shared between MFE's using LDProvider</li>
       </ul>
     </div>
   );

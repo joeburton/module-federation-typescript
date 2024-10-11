@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { asyncWithLDProvider } from 'launchdarkly-react-client-sdk';
 
 import App from './App';
+import { getBrowserInfo } from './utils';
 
 (async () => {
   // Initialize the LaunchDarkly provider asynchronously
@@ -10,9 +11,11 @@ import App from './App';
     clientSideID: '6706972120d9af0861ab5b8f',
     context: {
       kind: 'user',
-      key: 'user-key-123abc', // Replace with actual user key
-      name: 'Sandy Smith', // Replace with dynamic user data
-      email: 'sandy@example.com',
+      key: '456456', // Replace with actual user key
+      name: 'Jack Black', // Replace with dynamic user data
+      email: 'jackblack@gmail.com',
+      locale: 'USA',
+      browser: getBrowserInfo(),
     },
     options: {
       // Optional: Provide additional options like event streaming configurations, etc.
