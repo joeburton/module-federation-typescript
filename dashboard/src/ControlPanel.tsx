@@ -23,7 +23,14 @@ const Feature = ({ feature, flag }: { feature: string; flag: boolean }) => {
 };
 
 const ControlPanel = () => {
-  const { miniBasket, silverDealBanner, newCarousel } = useFlags();
+  const {
+    miniBasket,
+    silverDealBanner,
+    newCarousel,
+    enableMessage,
+    enableNewHeader,
+    simpleToggle,
+  } = useFlags();
   const flags = useFlags();
   console.log(flags);
 
@@ -32,6 +39,9 @@ const ControlPanel = () => {
       <Feature feature="New Mini Basket" flag={miniBasket} />
       <Feature feature="Silver Deal" flag={silverDealBanner} />
       <Feature feature="New Carousel" flag={newCarousel} />
+      <Feature feature="Enable Message" flag={enableMessage} />
+      <Feature feature="Enable Header" flag={enableNewHeader} />
+      <Feature feature="Simple Toggle" flag={simpleToggle} />
     </>
   );
 };
