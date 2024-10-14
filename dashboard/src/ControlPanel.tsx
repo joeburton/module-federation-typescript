@@ -81,6 +81,7 @@ const ControlPanel = () => {
       <div style={uiContainer}>
         {springLaunch && (
           <>
+            <h3>Spring Launch</h3>
             <ul style={{ listStyle: 'none', margin: '0', padding: '0' }}>
               <li style={{ padding: '1rem' }}>
                 DE:{' '}

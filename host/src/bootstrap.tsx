@@ -14,7 +14,7 @@ import { getBrowserInfo } from './utils';
       key: '456456',
       name: 'Ernst Stavro Blofeld',
       email: 'ernststavroblofeld@gmail.com',
-      country: 'GB',
+      country: 'DE',
       browser: getBrowserInfo(),
     },
     options: {
