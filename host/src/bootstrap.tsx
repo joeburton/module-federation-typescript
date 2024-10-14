@@ -18,7 +18,7 @@ import { getBrowserInfo } from './utils';
       browser: getBrowserInfo(),
     },
     options: {
-      // Optional: Provide additional options like event streaming configurations, etc.
+      bootstrap: 'localStorage',
     },
   });
 

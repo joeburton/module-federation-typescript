@@ -54,6 +54,7 @@ const ControlPanel = () => {
     rollingOffer,
     springLaunch,
   } = useFlags();
+
   const flags = useFlags();
 
   console.log(flags);
@@ -69,13 +70,21 @@ const ControlPanel = () => {
       <Feature feature="Enable Header" flag={enableNewHeader} />
       <Feature feature="Simple Toggle" flag={simpleToggle} />
       <div style={uiContainer}>
-        {miniBasket && <>Mini Basket - Display controlled via feature flag</>}
+        {miniBasket && (
+          <>
+            {miniBasket ? (
+              <div style={bgGreen}>Mini Basket: Active</div>
+            ) : (
+              <div style={bgRed}>Mini Basket: Inactive</div>
+            )}
+          </>
+        )}
       </div>
       <div style={uiContainer}>
         {rollingOffer ? (
           <div style={bgGreen}>Rolling Offer: Only active for the UK</div>
         ) : (
-          <div style={bgRed}>Rolling Offer: Inactive for the DE and FR</div>
+          <div style={bgRed}>Rolling Offer: Inactive for DE and FR</div>
         )}
       </div>
       <div style={uiContainer}>
