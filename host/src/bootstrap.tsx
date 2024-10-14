@@ -11,10 +11,10 @@ import { getBrowserInfo } from './utils';
     clientSideID: '6706972120d9af0861ab5b8f',
     context: {
       kind: 'user',
-      key: '456456', // Replace with actual user key
-      name: 'Jack Black', // Replace with dynamic user data
-      email: 'jackblack@gmail.com',
-      locale: 'USA',
+      key: '456456',
+      name: 'Ernst Stavro Blofeld',
+      email: 'ernststavroblofeld@gmail.com',
+      country: 'GB',
       browser: getBrowserInfo(),
     },
     options: {
