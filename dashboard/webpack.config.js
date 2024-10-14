@@ -13,6 +13,9 @@ module.exports = {
     port: 3002,
     historyApiFallback: true,
     hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*', // Allow any origin to access the remote resources
+    },
   },
   output: {
     publicPath: 'auto',

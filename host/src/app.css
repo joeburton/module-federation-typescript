@@ -13,7 +13,7 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 50px;
-  background-color: #eedd82;
+  background-color: #e8e9ee;
 }
 
 footer {
@@ -21,11 +21,12 @@ footer {
   align-items: center;
   justify-content: center;
   min-height: 50px;
-  background-color: #eedd82;
+  background-color: #282828;
+  color: #fff;
 }
 
 nav {
-  background-color: #cdbe70;
+  background-color: #282828;
   text-align: center;
   padding: 10px 0;
 }
@@ -40,12 +41,12 @@ nav ul {
 
 nav ul li a {
   padding: 8px;
-  color: #14213d;
+  color: #fff;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
 }
 
 nav ul li a:hover {
-  color: #09519a;
+  text-decoration: underline;
 }

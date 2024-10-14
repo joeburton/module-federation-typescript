@@ -9,6 +9,14 @@ const item = {
   listStyle: 'none',
 };
 
+const uiContainer = {
+  border: '1px solid green',
+  borderRadius: '4px',
+  padding: '3rem',
+  margin: '10px',
+  listStyle: 'none',
+};
+
 const Feature = ({ feature, flag }: { feature: string; flag: boolean }) => {
   return (
     <div style={item}>
@@ -42,6 +50,9 @@ const ControlPanel = () => {
       <Feature feature="Enable Message" flag={enableMessage} />
       <Feature feature="Enable Header" flag={enableNewHeader} />
       <Feature feature="Simple Toggle" flag={simpleToggle} />
+      <div style={uiContainer}>
+        {miniBasket && <>Mini Basket - Display controlled via feature flag</>}
+      </div>
     </>
   );
 };
