@@ -41,6 +41,11 @@ export function getBrowserInfo() {
 
 // Example usage
 const browserInfo = getBrowserInfo();
+
 console.log(
   `Browser: ${browserInfo.browserName}, Version: ${browserInfo.browserVersion}`,
 );
+
+export const getLocale = () => {
+  return 'UK'; // dynamic look up for locale
+};

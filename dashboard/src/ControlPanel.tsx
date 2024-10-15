@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFlags } from 'launchdarkly-react-client-sdk';
+import { useFlags, useLDClient } from 'launchdarkly-react-client-sdk';
 
 const item = {
   border: '1px solid green',
@@ -52,57 +52,66 @@ const ControlPanel = () => {
     enableNewHeader,
     simpleToggle,
     rollingOffer,
-    springLaunch,
+    winterLaunch,
   } = useFlags();
 
   const flags = useFlags();
+  const ldClient = useLDClient();
 
   console.log(flags);
   console.log('rollingOffer: ', rollingOffer);
-  console.log('springLaunch: ', springLaunch);
+  console.log('winterLaunch: ', winterLaunch);
+
+  const updateContext = (locale: string) => {
+    if (ldClient) {
+      ldClient.identify({
+        kind: 'user',
+        key: '456456',
+        name: 'Holger Crank',
+        email: 'holgercrank@gmail.com',
+        locale: locale,
+      });
+    }
+  };
 
   return (
     <>
       <Feature feature="New Mini Basket" flag={miniBasket} />
       <Feature feature="Silver Deal" flag={silverDealBanner} />
       <Feature feature="New Carousel" flag={newCarousel} />
-      <Feature feature="Enable Message" flag={enableMessage} />
       <Feature feature="Enable Header" flag={enableNewHeader} />
-      <Feature feature="Simple Toggle" flag={simpleToggle} />
       <div style={uiContainer}>
-        {miniBasket && (
-          <>
-            {miniBasket ? (
-              <div style={bgGreen}>Mini Basket: Active</div>
-            ) : (
-              <div style={bgRed}>Mini Basket: Inactive</div>
-            )}
-          </>
-        )}
-      </div>
-      <div style={uiContainer}>
-        {rollingOffer ? (
-          <div style={bgGreen}>Rolling Offer: Only active for the UK</div>
+        <h3>Mini Basket - (boolean flag on/ off for all locale's)</h3>
+        {miniBasket ? (
+          <div style={bgGreen}>Mini Basket: Active UK, DE, FR</div>
         ) : (
-          <div style={bgRed}>Rolling Offer: Inactive for DE and FR</div>
+          <div style={bgRed}>Mini Basket: Inactive UK, DE, FR</div>
         )}
       </div>
       <div style={uiContainer}>
-        {springLaunch && (
+        <h3>Market specific - (boolean flag on for the UK only)</h3>
+        {rollingOffer ? (
+          <div style={bgGreen}>Active for the UK</div>
+        ) : (
+          <div style={bgRed}>Inactive for DE and FR</div>
+        )}
+      </div>
+      <div style={uiContainer}>
+        {winterLaunch && (
           <>
-            <h3>Spring Launch</h3>
+            <h3>Winter Launch - (Custom/ Multivariate flag)</h3>
             <ul style={{ listStyle: 'none', margin: '0', padding: '0' }}>
               <li style={{ padding: '1rem' }}>
-                DE:{' '}
-                {springLaunch.country === 'DE' && springLaunch.active ? (
+                UK:{' '}
+                {winterLaunch.locale === 'UK' && winterLaunch.active ? (
                   <span style={bgGreen}>Enabled</span>
                 ) : (
                   <span style={bgRed}>Disabled</span>
                 )}
               </li>
               <li style={{ padding: '1rem' }}>
-                GB:{' '}
-                {springLaunch.country === 'GB' && springLaunch.active ? (
+                DE:{' '}
+                {winterLaunch.locale === 'DE' && winterLaunch.active ? (
                   <span style={bgGreen}>Enabled</span>
                 ) : (
                   <span style={bgRed}>Disabled</span>
@@ -110,7 +119,7 @@ const ControlPanel = () => {
               </li>
               <li style={{ padding: '1rem' }}>
                 FR:{' '}
-                {springLaunch.country === 'FR' && springLaunch.active ? (
+                {winterLaunch.locale === 'FR' && winterLaunch.active ? (
                   <span style={bgGreen}>Enabled</span>
                 ) : (
                   <span style={bgRed}>Disabled</span>
@@ -119,6 +128,26 @@ const ControlPanel = () => {
             </ul>
           </>
         )}
+      </div>
+      <div style={uiContainer}>
+        <h3>
+          Custom/ Multivariate flags with different rules for for UK, DE and FR.
+        </h3>
+        <button
+          onClick={() => updateContext('DE')}
+          style={{ padding: '10px', marginRight: '10px' }}
+        >
+          Update locale to [DE]
+        </button>
+        <button
+          onClick={() => updateContext('FR')}
+          style={{ padding: '10px', marginRight: '10px' }}
+        >
+          Update locale to [FR]
+        </button>
+        <button onClick={() => updateContext('UK')} style={{ padding: '10px' }}>
+          Update locale to [UK]
+        </button>
       </div>
     </>
   );

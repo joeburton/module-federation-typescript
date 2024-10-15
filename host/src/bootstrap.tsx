@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { asyncWithLDProvider } from 'launchdarkly-react-client-sdk';
 
 import App from './App';
-import { getBrowserInfo } from './utils';
+import { getBrowserInfo, getLocale } from './utils';
 
 (async () => {
   // Initialize the LaunchDarkly provider asynchronously
@@ -12,9 +12,9 @@ import { getBrowserInfo } from './utils';
     context: {
       kind: 'user',
       key: '456456',
-      name: 'Ernst Stavro Blofeld',
-      email: 'ernststavroblofeld@gmail.com',
-      country: 'DE',
+      name: 'James Smith',
+      email: 'jamessmith@gmail.com',
+      locale: getLocale(),
       browser: getBrowserInfo(),
     },
     options: {
