@@ -19,12 +19,14 @@ const uiContainer = {
 };
 
 const bgGreen = {
+  display: 'inline-block',
   backgroundColor: 'green',
   padding: '0.5rem',
   color: 'white',
 };
 
 const bgRed = {
+  display: 'inline-block',
   backgroundColor: 'red',
   padding: '0.5rem',
   color: 'white',
@@ -48,9 +50,7 @@ const ControlPanel = () => {
     miniBasket,
     silverDealBanner,
     newCarousel,
-    enableMessage,
     enableNewHeader,
-    simpleToggle,
     rollingOffer,
     winterLaunch,
   } = useFlags();
@@ -76,10 +76,13 @@ const ControlPanel = () => {
 
   return (
     <>
-      <Feature feature="New Mini Basket" flag={miniBasket} />
-      <Feature feature="Silver Deal" flag={silverDealBanner} />
-      <Feature feature="New Carousel" flag={newCarousel} />
-      <Feature feature="Enable Header" flag={enableNewHeader} />
+      <div style={uiContainer}>
+        <h3>Standard boolean flags on/ off for all locale's</h3>
+        <Feature feature="New Mini Basket" flag={miniBasket} />
+        <Feature feature="Silver Deal" flag={silverDealBanner} />
+        <Feature feature="New Carousel" flag={newCarousel} />
+        <Feature feature="Enable Header" flag={enableNewHeader} />
+      </div>
       <div style={uiContainer}>
         <h3>Mini Basket - (boolean flag on/ off for all locale's)</h3>
         {miniBasket ? (
@@ -100,36 +103,14 @@ const ControlPanel = () => {
         {winterLaunch && (
           <>
             <h3>Winter Launch - (Custom/ Multivariate flag)</h3>
-            <ul style={{ listStyle: 'none', margin: '0', padding: '0' }}>
-              <li style={{ padding: '1rem' }}>
-                UK:{' '}
-                {winterLaunch.locale === 'UK' && winterLaunch.active ? (
-                  <span style={bgGreen}>Enabled</span>
-                ) : (
-                  <span style={bgRed}>Disabled</span>
-                )}
-              </li>
-              <li style={{ padding: '1rem' }}>
-                DE:{' '}
-                {winterLaunch.locale === 'DE' && winterLaunch.active ? (
-                  <span style={bgGreen}>Enabled</span>
-                ) : (
-                  <span style={bgRed}>Disabled</span>
-                )}
-              </li>
-              <li style={{ padding: '1rem' }}>
-                FR:{' '}
-                {winterLaunch.locale === 'FR' && winterLaunch.active ? (
-                  <span style={bgGreen}>Enabled</span>
-                ) : (
-                  <span style={bgRed}>Disabled</span>
-                )}
-              </li>
-            </ul>
+            {winterLaunch.locale && winterLaunch.active ? (
+              <span style={bgGreen}>Enabled - {winterLaunch.locale}</span>
+            ) : (
+              <span style={bgRed}>Disabled - {winterLaunch.locale}</span>
+            )}
           </>
         )}
-      </div>
-      <div style={uiContainer}>
+        <hr style={{ margin: '20px 0 0 0' }} />
         <h3>
           Custom/ Multivariate flags with different rules for for UK, DE and FR.
         </h3>
@@ -149,6 +130,7 @@ const ControlPanel = () => {
           Update locale to [UK]
         </button>
       </div>
+      <div style={uiContainer}></div>
     </>
   );
 };
